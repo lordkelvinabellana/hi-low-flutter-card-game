@@ -2,7 +2,7 @@
 
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_cards/game_and_elements/deck.dart';
+import 'package:flutter_cards/screens/desktop_screens/card_layout_and%20game_logic/desk_deck.dart';
 import 'package:flutter_cards/screens/desktop_screens/desktop_score_board.dart';
 import 'package:flutter_cards/screens/desktop_screens/gameover_screen.dart';
 
@@ -109,7 +109,7 @@ class _DesktopCardLayoutAndLogicState extends State<DesktopCardLayoutAndLogic> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Deck(),
+                      DesktopDeck(),
                       presentCard(),
                       Stack(
                         children: [

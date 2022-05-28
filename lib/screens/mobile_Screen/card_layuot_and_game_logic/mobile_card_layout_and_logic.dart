@@ -2,9 +2,6 @@
 
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_cards/game_and_elements/deck.dart';
-import 'package:flutter_cards/screens/desktop_screens/desktop_score_board.dart';
-import 'package:flutter_cards/screens/desktop_screens/gameover_screen.dart';
 import 'package:flutter_cards/screens/mobile_Screen/mobile_score_board.dart';
 import 'package:flutter_cards/screens/mobile_Screen/card_layuot_and_game_logic/mobile_deck.dart';
 
