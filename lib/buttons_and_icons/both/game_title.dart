@@ -5,8 +5,7 @@ class GameTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment(0, -0.8),
+    return Center(
       child: Container(
         height: 300,
         width: 300,

@@ -3,14 +3,20 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_cards/game_and_elements/deck.dart';
+import 'package:flutter_cards/screens/desktop_screens/desktop_score_board.dart';
 import 'package:flutter_cards/screens/desktop_screens/gameover_screen.dart';
+import 'package:flutter_cards/screens/mobile_Screen/mobile_score_board.dart';
+import 'package:flutter_cards/screens/mobile_Screen/card_layuot_and_game_logic/mobile_deck.dart';
 
-class MyCardsAndGameLogic extends StatefulWidget {
+import '../gameover_mobile.dart';
+
+class MobileCardLayoutAndLogic extends StatefulWidget {
   @override
-  State<MyCardsAndGameLogic> createState() => _MyCardsAndGameLogicState();
+  State<MobileCardLayoutAndLogic> createState() =>
+      _MobileCardLayoutAndLogicState();
 }
 
-class _MyCardsAndGameLogicState extends State<MyCardsAndGameLogic> {
+class _MobileCardLayoutAndLogicState extends State<MobileCardLayoutAndLogic> {
   Map<String, int> playingDeck = {};
   bool gameStarted = false;
   bool isDrawn = false;
@@ -93,138 +99,134 @@ class _MyCardsAndGameLogicState extends State<MyCardsAndGameLogic> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 7, 95, 46),
-      body: Stack(
-        children: [
-          scoreBoard(),
-          highButton(),
-          lowButton(),
-          isGameOver
-              ? GameOver(playerScore: playerScore)
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          gameStarted = true;
-                        });
-                      },
-                      child: Deck(),
-                    ),
-                    presentCard(),
-                    Stack(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color.fromARGB(255, 7, 95, 46),
+        body: isGameOver
+            ? GameOverMobile(playerScore: playerScore)
+            : Column(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: MobileScoreBoard(playerScore),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        correctCardSpace1(-0.6, image1),
-                        correctCardSpace2(-0.3, image2),
-                        correctCardSpace3(-0.0, image3),
-                        correctCardSpace4(0.3, image4),
-                        correctCardSpace5(0.6, image5),
+                        MobileDeck(),
+                        presentCard(),
                       ],
                     ),
-                  ],
-                ),
-        ],
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Stack(
+                      children: [
+                        correctCardSpace1(-0.8, image1),
+                        correctCardSpace2(-0.4, image2),
+                        correctCardSpace3(0, image3),
+                        correctCardSpace4(0.4, image4),
+                        correctCardSpace5(0.8, image5),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        highButton(),
+                        lowButton(),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
       ),
     );
   }
 
-  Widget correctCardSpace1(double alignmentY, String imagepath) {
+  Widget correctCardSpace1(double alignmentX, String imagepath) {
     return Container(
-      alignment: Alignment(0, alignmentY),
-      child: Transform.rotate(
-        angle: pi / 2,
-        child: Container(
-          height: 230,
-          width: 150,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(
-              image: AssetImage(imagepath),
-              fit: BoxFit.fitHeight,
-            ),
+      alignment: Alignment(alignmentX, 0),
+      child: Container(
+        height: 230,
+        width: 150,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            image: AssetImage(imagepath),
+            fit: BoxFit.fitHeight,
           ),
         ),
       ),
     );
   }
 
-  Widget correctCardSpace2(double alignmentY, String imagepath) {
+  Widget correctCardSpace2(double alignmentX, String imagepath) {
     return Container(
-      alignment: Alignment(0, alignmentY),
-      child: Transform.rotate(
-        angle: pi / 2,
-        child: Container(
-          height: 230,
-          width: 150,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(
-              image: AssetImage(imagepath),
-              fit: BoxFit.fitHeight,
-            ),
+      alignment: Alignment(alignmentX, 0),
+      child: Container(
+        height: 230,
+        width: 150,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            image: AssetImage(imagepath),
+            fit: BoxFit.fitHeight,
           ),
         ),
       ),
     );
   }
 
-  Widget correctCardSpace3(double alignmentY, String imagepath) {
+  Widget correctCardSpace3(double alignmentX, String imagepath) {
     return Container(
-      alignment: Alignment(0, alignmentY),
-      child: Transform.rotate(
-        angle: pi / 2,
-        child: Container(
-          height: 230,
-          width: 150,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(
-              image: AssetImage(imagepath),
-              fit: BoxFit.fitHeight,
-            ),
+      alignment: Alignment(alignmentX, 0),
+      child: Container(
+        height: 230,
+        width: 150,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            image: AssetImage(imagepath),
+            fit: BoxFit.fitHeight,
           ),
         ),
       ),
     );
   }
 
-  Widget correctCardSpace4(double alignmentY, String imagepath) {
+  Widget correctCardSpace4(double alignmentX, String imagepath) {
     return Container(
-      alignment: Alignment(0, alignmentY),
-      child: Transform.rotate(
-        angle: pi / 2,
-        child: Container(
-          height: 230,
-          width: 150,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(
-              image: AssetImage(imagepath),
-              fit: BoxFit.fitHeight,
-            ),
+      alignment: Alignment(alignmentX, 0),
+      child: Container(
+        height: 230,
+        width: 150,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            image: AssetImage(imagepath),
+            fit: BoxFit.fitHeight,
           ),
         ),
       ),
     );
   }
 
-  Widget correctCardSpace5(double alignmentY, String imagepath) {
+  Widget correctCardSpace5(double alignmentX, String imagepath) {
     return Container(
-      alignment: Alignment(0, alignmentY),
-      //color: Colors.red,
-      child: Transform.rotate(
-        angle: pi / 2,
-        child: Container(
-          height: 230,
-          width: 150,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(
-              image: AssetImage(imagepath),
-              fit: BoxFit.fitHeight,
-            ),
+      alignment: Alignment(alignmentX, 0),
+      child: Container(
+        height: 230,
+        width: 150,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            image: AssetImage(imagepath),
+            fit: BoxFit.fitHeight,
           ),
         ),
       ),
@@ -310,13 +312,13 @@ class _MyCardsAndGameLogicState extends State<MyCardsAndGameLogic> {
     }
     return isDrawn
         ? Container(
-            height: 330,
-            width: 230,
+            height: 230,
+            width: 150,
             child: drawCard(),
           )
         : Container(
-            height: 330,
-            width: 230,
+            height: 230,
+            width: 150,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.green,
@@ -342,10 +344,10 @@ class _MyCardsAndGameLogicState extends State<MyCardsAndGameLogic> {
 
   Widget highButton() {
     return Container(
-      alignment: Alignment(-0.36, 0.85),
+      alignment: Alignment.center,
       child: Container(
-        height: 130,
-        width: 200,
+        height: 70,
+        width: 140,
         child: MaterialButton(
           elevation: 3,
           splashColor: Color.fromARGB(255, 114, 11, 4),
@@ -365,7 +367,7 @@ class _MyCardsAndGameLogicState extends State<MyCardsAndGameLogic> {
               child: Center(
                 child: Icon(
                   Icons.keyboard_double_arrow_up_rounded,
-                  size: 80,
+                  size: 40,
                 ),
               ),
             ),
@@ -373,7 +375,7 @@ class _MyCardsAndGameLogicState extends State<MyCardsAndGameLogic> {
               child: Center(
                 child: Text(
                   'H I G H',
-                  style: TextStyle(fontSize: 40),
+                  style: TextStyle(fontSize: 20),
                 ),
               ),
             ),
@@ -385,10 +387,10 @@ class _MyCardsAndGameLogicState extends State<MyCardsAndGameLogic> {
 
   Widget lowButton() {
     return Container(
-      alignment: Alignment(0.32, 0.85),
+      alignment: Alignment.center,
       child: Container(
-        height: 130,
-        width: 200,
+        height: 70,
+        width: 140,
         child: MaterialButton(
           elevation: 3,
           splashColor: Color.fromARGB(255, 3, 61, 109),
@@ -408,7 +410,7 @@ class _MyCardsAndGameLogicState extends State<MyCardsAndGameLogic> {
               child: Center(
                 child: Icon(
                   Icons.keyboard_double_arrow_down_rounded,
-                  size: 80,
+                  size: 40,
                 ),
               ),
             ),
@@ -416,7 +418,7 @@ class _MyCardsAndGameLogicState extends State<MyCardsAndGameLogic> {
               child: Center(
                 child: Text(
                   'L O W',
-                  style: TextStyle(fontSize: 40),
+                  style: TextStyle(fontSize: 20),
                 ),
               ),
             ),

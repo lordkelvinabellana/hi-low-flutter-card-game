@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cards/responsive/responsive_layout.dart';
+import 'package:flutter_cards/screens/mobile_Screen/mob_game_screen.dart';
 
-import '../screens/game_screen.dart';
+import '../screens/desktop_screens/desk_game_screen.dart';
 
 class TryAgain extends StatefulWidget {
   const TryAgain({Key? key}) : super(key: key);
@@ -13,8 +15,8 @@ class _TryAgainState extends State<TryAgain> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130,
-      width: 200,
+      height: 100,
+      width: 170,
       child: MaterialButton(
         elevation: 10,
         splashColor: Color.fromARGB(255, 163, 147, 5),
@@ -24,7 +26,12 @@ class _TryAgainState extends State<TryAgain> {
         ),
         onPressed: (() {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => MyGameScreen()),
+            MaterialPageRoute(
+              builder: (context) => ResponsiveLayout(
+                mobileBody: MyMobileGameScreen(),
+                desktopBody: MyDesktopGameScreen(),
+              ),
+            ),
           );
         }),
         child: Center(

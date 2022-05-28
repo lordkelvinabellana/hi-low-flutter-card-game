@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_cards/portrait%20mode/p_home_screen.dart';
-import 'package:flutter_cards/screens/home_screen.dart';
+import 'package:flutter_cards/screens/desktop_screens/desk_menu_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,18 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-    ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
-        child: OrientationBuilder(
-          builder: (BuildContext context, Orientation orientation) =>
-              orientation == Orientation.landscape
-                  ? MyHomeScreen()
-                  : PMyHomeScreen(),
-        ),
+        child: MyDesktopMenuScreen(),
       ),
     );
   }
