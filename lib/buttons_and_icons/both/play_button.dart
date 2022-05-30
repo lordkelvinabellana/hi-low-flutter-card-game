@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cards/screens/desktop_screens/desk_game_screen.dart';
 
-import '../screens/gamepage.dart';
+import '../../screens/gamepage.dart';
 
 class PlayButton extends StatefulWidget {
   const PlayButton({Key? key}) : super(key: key);

@@ -2,9 +2,10 @@
 
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_cards/screens/gamepage.dart';
+import 'package:flutter_cards/screens/mobile_Screen/mob_game_screen.dart';
 import 'package:flutter_cards/screens/mobile_Screen/mobile_score_board.dart';
 import 'package:flutter_cards/screens/mobile_Screen/card_layuot_and_game_logic/mobile_deck.dart';
-
 import '../gameover_mobile.dart';
 
 class MobileCardLayoutAndLogic extends StatefulWidget {

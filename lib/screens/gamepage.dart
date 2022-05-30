@@ -4,8 +4,6 @@ import 'package:flutter_cards/screens/desktop_screens/desk_game_screen.dart';
 import 'package:flutter_cards/screens/mobile_Screen/mob_game_screen.dart';
 
 class Gamepage extends StatefulWidget {
-  const Gamepage({Key? key}) : super(key: key);
-
   @override
   State<Gamepage> createState() => _GamepageState();
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cards/responsive/responsive_layout.dart';
+import 'package:flutter_cards/screens/gamepage.dart';
 import 'package:flutter_cards/screens/mobile_Screen/mob_game_screen.dart';
 
-import '../screens/desktop_screens/desk_game_screen.dart';
+import '../../screens/desktop_screens/desk_game_screen.dart';
 
 class TryAgain extends StatefulWidget {
   const TryAgain({Key? key}) : super(key: key);

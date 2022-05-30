@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cards/buttons_and_icons/main_menu_button.dart';
-import 'package:flutter_cards/buttons_and_icons/try_again_button.dart';
+import 'package:flutter_cards/buttons_and_icons/both/main_menu_button.dart';
+import 'package:flutter_cards/buttons_and_icons/both/try_again_button.dart';
 
 class GameOverMobile extends StatelessWidget {
   final playerScore;

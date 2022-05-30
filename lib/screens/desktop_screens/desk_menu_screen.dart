@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cards/buttons_and_icons/both/credits.dart';
 import 'package:flutter_cards/buttons_and_icons/both/game_title.dart';
 import 'package:flutter_cards/buttons_and_icons/both/main_menu_background.dart';
-import 'package:flutter_cards/buttons_and_icons/play_button.dart';
+
+import '../../buttons_and_icons/both/play_button.dart';
 
 class MyDesktopMenuScreen extends StatefulWidget {
   const MyDesktopMenuScreen({Key? key}) : super(key: key);
